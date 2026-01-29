@@ -40,7 +40,7 @@ def main():
     
     write_file.close() 
     print("Done")
-    input("Lopeta (0): ")
+    input("Lopeta: ")
 
 if __name__ == "__main__":
     main()
