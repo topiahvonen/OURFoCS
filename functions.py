@@ -14,7 +14,7 @@ def factorial(n: int) -> int:
     return factorial(n - 1) * n
 
 
-memory = {}
+memory: dict = {}
 def fact_memo(n: int) -> int:
     if n == 0:
         return 1
@@ -24,8 +24,17 @@ def fact_memo(n: int) -> int:
     return memory[n]
 
 
-def calc_time(n: int, f) -> float:
+def calc_time(n: int, f: function) -> float:
     start = perf_counter()
     f(n)
     end = perf_counter()
     return end - start
+
+def average_time(n: int, f: function) -> float:
+    time_sum: float = 0
+    for _ in range(10):
+        start = perf_counter()
+        f(n)
+        end = perf_counter()
+        time_sum += (end - start)
+    return time_sum / 10

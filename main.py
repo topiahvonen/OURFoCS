@@ -12,9 +12,9 @@ def main():
 
     sys.setrecursionlimit(3000)
     for i in range(0, num, 10):
-        time_normal = calc_time(i, factorial)
-        time_memo = calc_time(i, fact_memo)
-        time_iter = calc_time(i, fact_iter)
+        time_normal = average_time(i, factorial)
+        time_memo = average_time(i, fact_memo)
+        time_iter = average_time(i, fact_iter)
         writer.writerow([i, time_normal, time_memo, time_iter])
     
     write_file.close() 
