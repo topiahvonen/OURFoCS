@@ -14,11 +14,9 @@ def factorial(n: int) -> int:
     return factorial(n - 1) * n
 
 
-memory: dict = {}
+memory: dict = {0: 1}    # Base case
 def fact_memo(n: int) -> int:
-    if n == 0:
-        return 1
-    elif n in memory:
+    if n in memory:
         return memory[n]
     memory[n] = fact_memo(n - 1) * n
     return memory[n]
