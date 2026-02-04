@@ -1,18 +1,17 @@
 import unittest
-import sys
 from functions import *
 
 
 class test_this(unittest.TestCase):
 
     def test_factorial(self):
-        assert run_func(factorial) == None
-    
+        self.assertIsNone(run_func(factorial))
+
     def test_iter(self):
-        assert run_func(fact_iter) == None
-    
+        self.assertIsNone(run_func(fact_iter))
+
     def test_fact_memo(self):
-        assert run_func(fact_memo) == None
+        self.assertIsNone(run_func(fact_memo))
 
 
 def run_func(f):
@@ -20,6 +19,6 @@ def run_func(f):
         f(i)
     return None
 
+
 if __name__ == "__main__":
-    sys.setrecursionlimit(1020)
     unittest.main()
