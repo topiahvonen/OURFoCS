@@ -1,7 +1,7 @@
 import csv
 import sys
 
-from functions import *
+import functions as f
 
 
 def main():
@@ -12,12 +12,12 @@ def main():
 
     sys.setrecursionlimit(3000)
     for i in range(0, num, 10):
-        time_normal = average_time(i, factorial)
-        time_memo = average_time(i, fact_memo)
-        time_iter = average_time(i, fact_iter)
+        time_normal = f.average_time(i, f.factorial)
+        time_memo = f.average_mem_time(i, f.fact_memo)
+        time_iter = f.average_time(i, f.fact_iter)
         writer.writerow([i, time_normal, time_memo, time_iter])
-    
-    write_file.close() 
+
+    write_file.close()
     print("Done")
 
 

@@ -28,14 +28,14 @@ def fact_memo(n: int) -> int:
     return memory[n]
 
 
-def calc_time(n: int, f: function) -> float:
+def calc_time(n, f) -> float:
     start = perf_counter()
     f(n)
     end = perf_counter()
     return end - start
 
 
-def average_time(n: int, f: function) -> float:
+def average_time(n, f) -> float:
     time_sum: float = 0
     for _ in range(10):
         start = perf_counter()
@@ -43,3 +43,15 @@ def average_time(n: int, f: function) -> float:
         end = perf_counter()
         time_sum += end - start
     return time_sum / 10
+
+
+def average_mem_time(n, f):
+    # Only to be used with the fuction 'fact_memo'
+    time_sum = 0
+    for _ in range(10):
+        start = perf_counter()
+        f(n)
+        end = perf_counter()
+        time_sum += end - start
+        memory.clear()
+        return time_sum / 10
