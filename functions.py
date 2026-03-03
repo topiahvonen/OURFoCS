@@ -54,4 +54,5 @@ def average_mem_time(n, f):
         end = perf_counter()
         time_sum += end - start
         memory.clear()
+        memory[0] = 1
         return time_sum / 10
